@@ -17,6 +17,10 @@ La aplicación implementa un sistema de caché mediante `useRef` para optimizar 
 - **Historial de Búsquedas**
   ![Gifs App Screenshot](https://raw.githubusercontent.com/david99cartagena/gifs-app-react/refs/heads/main/media/Screenshot_3.png)
 
+- **Cobertura de tests**  
+  Visualización de cobertura generada por **Vitest** en el proyecto React.  
+  ![Cobertura de tests](https://raw.githubusercontent.com/david99cartagena/gifs-app-react/refs/heads/main/media/Screenshot_4.png)
+
 ## 🚀 Tecnologías Utilizadas
 
 - **React** - v19.1.0
@@ -121,12 +125,20 @@ Se han implementado pruebas unitarias e integración para asegurar la robustez d
 Para correr la suite de pruebas, utiliza cualquiera de estos comandos:
 
 ```bash
-# Ejecutar todas las pruebas una vez
-npm run test:only
-
 # Modo interactivo (Watch mode)
 npm run test
 
-# Ver cobertura de las pruebas
+# Ejecutar todas las pruebas una vez
+npm run test:only
+
+# Ver los tests de manera visual (Vitest UI)
+npm run test:ui
+
+# Ver la cobertura del proyecto
 npm run coverage
 ```
+
+> [!TIP]
+> **Vitest UI:** Al ejecutar `npm run test:ui`, se abrirá una interfaz en el navegador que permite visualizar el progreso de las pruebas, los tiempos de ejecución y los archivos de manera interactiva.
+>
+> **Cobertura:** Al ejecutar `npm run coverage`, se generará una carpeta `coverage/` en la raíz del proyecto. Puedes abrir el archivo `coverage/index.html` en tu navegador para ver un reporte detallado de qué líneas de código están cubiertas por los tests.
