@@ -1,54 +1,132 @@
-# React + TypeScript + Vite
+# 🖼️ Gifs App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación en **React 19.1.0** que utiliza **Axios 1.7.9** y la api de **Giphy** para buscar y visualizar GIFs animados de manera rápida y eficiente.
 
-Currently, two official plugins are available:
+Los usuarios pueden realizar búsquedas, ver los resultados en una cuadrícula moderna y acceder a un historial de sus búsquedas recientes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+La aplicación implementa un sistema de caché mediante `useRef` para optimizar el rendimiento y evitar llamadas innecesarias a la API cuando se repiten búsquedas.
 
-## Expanding the ESLint configuration
+## 📸 Demo
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+🔗 **Visita la demo en línea:** [Gifs App en Netlify](https://famous-buttercream-ab2746.netlify.app/)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- **Buscador Principal**
+  ![Gifs App Screenshot](https://raw.githubusercontent.com/david99cartagena/gifs-app-react/refs/heads/main/media/Screenshot_1.png)
+- **Resultados de Búsqueda**
+  ![Gifs App Screenshot](https://raw.githubusercontent.com/david99cartagena/gifs-app-react/refs/heads/main/media/Screenshot_2.png)
+- **Historial de Búsquedas**
+  ![Gifs App Screenshot](https://raw.githubusercontent.com/david99cartagena/gifs-app-react/refs/heads/main/media/Screenshot_3.png)
+
+## 🚀 Tecnologías Utilizadas
+
+- **React** - v19.1.0
+- **Vite** - v6.3.5
+- **Axios** - v1.7.9
+- **TypeScript** - v5.8.3
+- **Vitest - (Testing)** - v3.2.4
+- **HTML5 / CSS3**
+
+## 📁 Estructura del Proyecto
+
+```
+src/
+├── gifs/
+│   ├── actions/
+│   │   └── get-gifs-by-query.action.ts   # Acción para llamar a la API
+│   ├── api/
+│   │   └── gifs.api.ts                   # Configuración de Axios
+│   ├── components/
+│   │   ├── GifList.tsx                   # Lista de GIFs
+│   │   └── PreviousSearches.tsx          # Historial de búsquedas
+│   ├── hooks/
+│   │   └── useGifs.tsx                   # Hook personalizado para lógica
+│   └── interfaces/
+│       └── gif.interface.ts              # Definición de tipos
+├── shared/
+│   └── components/
+│       ├── CustomHeader.tsx              # Cabecera de la app
+│       └── SearchBar.tsx                 # Barra de búsqueda
+├── GifsApp.tsx                           # Componente principal
+└── main.tsx                              # Punto de entrada
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🔑 Funcionalidades
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+✅ Búsqueda interactiva de GIFs por término  
+✅ Visualización de resultados en grid responsivo  
+✅ Historial de búsquedas recientes (últimas 8)  
+✅ Sistema de caché local `useRef` para búsquedas frecuentes  
+✅ Tipado estricto con **TypeScript**  
+✅ Testing unitario con **Vitest**  
+✅ UI limpia y moderna con **CSS Vanilla**
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+## 📦 Instalación
+
+1. Clona este repositorio:
+
+```bash
+git clone https://github.com/david99cartagena/gifs-app-react.git
+```
+
+```bash
+cd 03-gifs-app
+```
+
+2. Instala las dependencias:
+
+```bash
+npm install
+```
+
+3. Ejecuta el servidor local:
+
+```bash
+npm run dev
+```
+
+La aplicación estará disponible en: `http://localhost:5173/`
+
+## ⚙️ Configuración de API
+
+Asegúrate de tener una clave de **Giphy Developers API**.
+
+- Obtén tu clave desde el [Dashboard de Giphy Developers](https://developers.giphy.com/dashboard/)
+
+- Crea un archivo `.env` en la raíz del proyecto y agrega tu **API Key**.
+
+```env
+VITE_GIPHY_API_KEY=TU_API_KEY_AQUI
+```
+
+## 🧪 Pruebas Realizadas
+
+Se han implementado pruebas unitarias e integración para asegurar la robustez de la aplicación utilizando **Vitest** y **React Testing Library**.
+
+### 🔍 Resumen de Cobertura
+
+- **Custom Hooks (`useGifs`)**:
+  - Verificación de estado inicial.
+  - Funcionamiento de la búsqueda y actualización de GIFs.
+  - Límite de historial de búsquedas (máximo 8 términos).
+  - Funcionamiento de la caché local mediante `useRef`.
+- **Componentes (`Shared` & `Gifs`)**:
+  - Renderizado correcto de `CustomHeader`, `SearchBar` y `GifList`.
+  - Interacción del usuario en la barra de búsqueda.
+  - Snapshot testing para asegurar la integridad de la UI en `GifsApp`.
+- **Acciones y API**:
+  - Pruebas de integración para las llamadas con **Axios**.
+
+### 🛠️ Ejecución de Pruebas
+
+Para correr la suite de pruebas, utiliza cualquiera de estos comandos:
+
+```bash
+# Ejecutar todas las pruebas una vez
+npm run test:only
+
+# Modo interactivo (Watch mode)
+npm run test
+
+# Ver cobertura de las pruebas
+npm run coverage
 ```
