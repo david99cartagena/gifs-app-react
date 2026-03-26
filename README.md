@@ -16,8 +16,9 @@ La aplicación implementa un sistema de caché mediante `useRef` para optimizar 
   ![Gifs App Screenshot](https://raw.githubusercontent.com/david99cartagena/gifs-app-react/refs/heads/main/media/Screenshot-2.png)
 - **Historial de Búsquedas**
   ![Gifs App Screenshot](https://raw.githubusercontent.com/david99cartagena/gifs-app-react/refs/heads/main/media/Screenshot-3.png)
+- **Caché de Búsquedas**  
+  Se usa `useRef` como caché para evitar peticiones repetidas a la API en búsquedas ya realizadas.
   ![Gifs App Screenshot](https://raw.githubusercontent.com/david99cartagena/gifs-app-react/refs/heads/main/media/Screenshot-4.png)
-
 - **Cobertura de tests**  
   Visualización de cobertura generada por **Vitest** en el proyecto React.  
   ![Cobertura de tests](https://raw.githubusercontent.com/david99cartagena/gifs-app-react/refs/heads/main/media/Screenshot-5.png)
